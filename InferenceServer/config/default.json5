@@ -1,0 +1,42 @@
+{
+  // 기본 로깅 설정 - glog.py 의 levels 참고.
+  log: {
+    // 콘솔 출력
+    console: {
+      level: "debug",
+    },
+
+    // 파일 출력
+    file: {
+      level: "debug",
+      saveDir: ".\\log",
+      saveFileName: "inferenceAiServer.log",
+    },
+  },
+
+  // configServer 설정
+  configServer: {
+    url: "http://localhost:20100",
+  },
+
+  aiInfos: {
+    root: "\\\\192.168.0.233\\GXLab\\Projects\\AI\\models\\cnn\\cnn_bernice_220322\\",
+    modelInfo: {
+      path: ".\\",
+      name: "model.h5",
+      metaData: {},
+    },
+    dataInfo: {
+      path: ".\\data_info.json",
+    },
+  },
+
+  inputData: {
+    dirPath: "\\\\192.168.0.233\\GXLab\\Projects\\AI\\data\\synthetic_data\\aligned\\2022.3.2_14.26.22\\Bernice",
+    dataType: 0,
+    metaData: {
+      imageWidth: 256,
+      imageHeight: 256,
+    },
+  },
+}

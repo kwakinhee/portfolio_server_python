@@ -1,0 +1,84 @@
+{
+  // ----------------------------------------------------
+  // 하나의 "서비스 그룹" 에서 동일한 설정.
+  // ----------------------------------------------------
+
+  sharedConfig: {
+    // 본 서비스군 공용으로 사용되는 rest API service 목록.
+    http: {
+      // authServer 설정.
+      authServer: {
+        url: "http://localhost:25000",
+      },
+    },
+  },
+
+  // ----------------------------------------------------
+  // World 목록 + 설정.
+  // ----------------------------------------------------
+
+  world: {
+    worlds: [
+      {
+        // 월드 ID
+        id: "AI-01",
+      },
+
+      // 월드에서 필요한 모듈들을 정의.
+    ],
+  },
+
+  // ----------------------------------------------------
+  // configServer service configurations
+  // ----------------------------------------------------
+  configServer: {},
+
+  // ----------------------------------------------------
+  // authServer service configurations
+  // ----------------------------------------------------
+
+  authServer: {},
+
+  // ----------------------------------------------------
+  // aiServer service configurations
+  // ----------------------------------------------------
+
+  aiServer: {
+    // aiServer 공용 설정.
+    common: {
+      // 패킷 부하 최대 사이즈.
+      maxPayloadQueueSize: 10,
+
+      // ping 타임아웃 설정
+      ping: {
+        // 클라이언트 핑 주기
+        interval: 2000, // 2 seconds
+
+        // 타임아웃
+        timeout: 10000, // 10 seconds
+      },
+
+      // 클라이언트 틱 설정
+      clientTick: {
+        // ping 체크 주기.
+        pingPongIntervalSec: 5, // 5 seconds
+      },
+    }, //common
+
+    // 인스턴스 별 설정.
+    instances: {
+      // todo configServer rest Api 작업 완료휴 GXPlatform-KIH 는 hostName 으로 변환.
+      // todo 컨테이너환경에서 hostname이 동적으로 할당되어 임시로 localhost로 수정.
+      "aiServer.0@localhost": {
+        // 월드 ID.
+        worldId: "AI-01",
+
+        // TCP socket listener.
+        socketServer: {
+          bindAddress: "127.0.0.1",
+          port: 23000,
+        },
+      },
+    }, // instances
+  }, // aiServer
+}

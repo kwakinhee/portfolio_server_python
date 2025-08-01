@@ -1,0 +1,19 @@
+FROM python:3.8.10
+
+
+WORKDIR /app
+
+COPY requirements-configServer.txt .
+
+RUN pip install -r requirements-configServer.txt
+
+COPY commonlib/ ./commonlib
+COPY config/ ./config
+COPY service_group/ ./service_group
+COPY configServer ./configServer
+COPY proto/ ./proto
+
+ENV INFERENCE_CONFIG_FILE_NAME=default.linux.json5
+
+CMD [ "python3", "./configServer/main.py" ]
+
