@@ -31,11 +31,10 @@ AI 기능 자체보다도 **Python 기반 서버 구조의 확장성과 유연�
 AI 모델의 추론 결과를 실시간으로 받아 처리하고,
 이를 UDP를 통해 외부 엔진(Unreal 등)으로 브로드캐스팅하는 **AI-실시간 통신 특화 서버**입니다.
 
-### 기술적 특징:
+### 현재 프로젝트의 기술적 특징:
 - Twisted 기반 비동기 Python 서버 구조
 - AI Inference 모델 연동 (학습은 별도 서버에서 수행)
 - UDP 기반 결과 전송 (버추얼 휴먼 제어용)
-- 성능 테스트 자동화: Load, Stress, Soak, Failover 등
 - 프로세스 스케일아웃 + Command 패턴 적용
 - K3s + Helm + ArgoCD 기반 DevOps 운영 구조
 
